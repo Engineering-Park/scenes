@@ -1,27 +1,24 @@
 import addSound from "./components/addSound";
 import addAttribution from "./entities/addAttribution";
 import createGltfShape from "./entities/createGltfShape";
+import createPlane from "./entities/createPlane";
 import FlightSystem from "./systems/FlightSystem";
 
 const scene = new Entity("scene_aircraft");
-scene.addComponentOrReplace(
-  new Transform({
-    position: new Vector3(8, 0, 8),
-    rotation: Quaternion.Euler(0, 0, 0)
-  })
-);
 engine.addEntity(scene);
 
-createGltfShape({
-  model: "FloorBaseGrass_01/FloorBaseGrass_01.glb",
-  name: "FloorBase",
-  position: new Vector3(0, 0, 0)
-}).setParent(scene);
+const floor = createPlane({
+  texture: "runway_type2_11.png",
+  name: "floor",
+  position: new Vector3(8, 0, 8),
+  scale: new Vector3(16, 16, 16)
+});
+floor.setParent(scene);
 
 const aircraft = createGltfShape({
   model: "airplane.glb",
-  name: "Airplane",
-  position: new Vector3(0, 1, 0),
+  name: "airplane",
+  position: new Vector3(8, 3.5, 8),
   scale: new Vector3(0.25, 0.25, 0.25)
 });
 aircraft.setParent(scene);
