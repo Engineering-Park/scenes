@@ -1,7 +1,7 @@
 {
   "display": {
     "title": "Engineering Park",
-    "description": "Aircraft",
+    "description": "Railway",
     "navmapThumbnail": "images/scene-thumbnail.png",
     "favicon": "images/favicon.ico"
   },
@@ -11,10 +11,10 @@
     "email": "hello@engineeringpark.org"
   },
   "main": "bin/game.js",
-  "tags": ["engineering", "park", "aircraft"],
+  "tags": ["engineering", "park", "railway"],
   "scene": {
-    "parcels": ["69,48"],
-    "base": "69,48"
+    "parcels": ["70,48"],
+    "base": "70,48"
   },
   "spawnPoints": [
     {
