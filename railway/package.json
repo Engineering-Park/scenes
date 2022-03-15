@@ -1,7 +1,7 @@
 {
-  "name": "engineeringpark_railway_scene",
+  "name": "@engineeringpark/railway",
   "version": "1.0.0",
-  "description": "Engineering Park Railway Scene",
+  "description": "Engineering Park railway scene",
   "homepage": "https://engineeringpark.org",
   "bugs": {
     "url": "https://github.com/Engineering-Park/scenes/issues",
