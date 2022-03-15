@@ -29,9 +29,13 @@
     "rename": "rename lib/__tests__Data testdata",
     "test": "jest --config jestconfig.json --watch"
   },
+  "dependencies": {
+    "@dcl/ecs-scene-utils": "^1.7.5"
+  },
   "devDependencies": {
     "@types/jest": "^27.0.2",
     "@types/node": "^16.11.6",
+    "decentraland-ecs": "^6.9.1",
     "jest": "^27.3.1",
     "prettier": "^2.4.1",
     "rimraf": "^3.0.2",
@@ -39,6 +43,9 @@
     "ts-node": "^10.3.0",
     "typescript": "^4.4.4"
   },
+  "bundledDependencies": [
+    "@dcl/ecs-scene-utils"
+  ],
   "jest": {
     "collectCoverageFrom": [
       "<rootDir>/src/**/**.{ts,tsx}"
