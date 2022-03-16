@@ -1,7 +1,9 @@
-import addSound from "./components/addSound";
-import addAttribution from "./entities/addAttribution";
-import createGltfShape from "./entities/createGltfShape";
-import createPlane from "./entities/createPlane";
+import { addSound } from "@engineeringpark/components";
+import {
+  addAttribution,
+  createGltfShape,
+  createPlane
+} from "@engineeringpark/entities";
 
 const scene = new Entity("scene_railway");
 engine.addEntity(scene);
