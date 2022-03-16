@@ -1,8 +1,10 @@
-import addSound from "./components/addSound";
-import addAttribution from "./entities/addAttribution";
-import createGltfShape from "./entities/createGltfShape";
-import createPlane from "./entities/createPlane";
-import FlightSystem from "./systems/FlightSystem";
+import { addSound } from "@engineeringpark/components";
+import {
+  addAttribution,
+  createGltfShape,
+  createPlane
+} from "@engineeringpark/entities";
+import { FlightSystem } from "@engineeringpark/systems";
 
 const scene = new Entity("scene_aircraft");
 engine.addEntity(scene);

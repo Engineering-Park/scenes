@@ -6,13 +6,14 @@
     "paths": {
       "@dcl/ecs-scene-utils": [
         "node_modules\\@dcl\\ecs-scene-utils\\dist\\index.d.ts"
-      ]
+      ],
+      "@engineeringpark/components": ["..\\lib\\src\\components\\index.ts"],
+      "@engineeringpark/entities": ["..\\lib\\src\\entities\\index.ts"],
+      "@engineeringpark/systems": ["..\\lib\\src\\systems\\index.ts"]
     },
     "baseUrl": "."
   },
-  "include": [
-    "src/**/*.ts"
-  ],
+  "include": ["src/**/*.ts"],
   "extends": "./node_modules/decentraland-ecs/types/tsconfig.json",
   "compileOnSave": false
 }
