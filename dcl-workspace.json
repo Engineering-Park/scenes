@@ -1,0 +1,16 @@
+{
+  "folders": [
+    {
+      "path": "aircraft"
+    },
+    {
+      "path": "bicycle"
+    },
+    {
+      "path": "parachute"
+    },
+    {
+      "path": "railway"
+    }
+  ]
+}
