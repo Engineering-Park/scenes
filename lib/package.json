@@ -30,7 +30,7 @@
     "test": "jest --config jestconfig.json --watch"
   },
   "dependencies": {
-    "@dcl/ecs-scene-utils": "^1.7.5"
+    "@dcl/ecs-scene-utils": "latest"
   },
   "devDependencies": {
     "@types/jest": "^27.0.2",
