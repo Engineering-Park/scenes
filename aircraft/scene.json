@@ -13,8 +13,8 @@
   "main": "bin/game.js",
   "tags": ["engineering", "park", "aircraft"],
   "scene": {
-    "parcels": ["69,48"],
-    "base": "69,48"
+    "parcels": ["69,47"],
+    "base": "69,47"
   },
   "spawnPoints": [
     {

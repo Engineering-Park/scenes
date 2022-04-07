@@ -14,7 +14,7 @@
   "tags": ["engineering", "park", "wright", "way", "north"],
   "scene": {
     "parcels": ["68,49", "68,48", "68,47", "68,46", "68,45", "68,44"],
-    "base": "68,49"
+    "base": "68,44"
   },
   "spawnPoints": [
     {

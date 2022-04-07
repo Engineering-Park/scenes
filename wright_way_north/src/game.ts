@@ -8,8 +8,8 @@ import Script4 from "../7e78cd70-5414-4ec4-be5f-198ec9879a5e/src/item";
 const _scene = new Entity("_scene");
 engine.addEntity(_scene);
 const transform = new Transform({
-  position: new Vector3(0, 0, 16),
-  rotation: new Quaternion(0, 1, 0, 1),
+  position: new Vector3(16, 0, 0),
+  rotation: new Quaternion(0, -1, 0, 1),
   scale: new Vector3(1, 1, 1)
 });
 _scene.addComponentOrReplace(transform);

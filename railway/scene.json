@@ -13,8 +13,8 @@
   "main": "bin/game.js",
   "tags": ["engineering", "park", "railway"],
   "scene": {
-    "parcels": ["70,48"],
-    "base": "70,48"
+    "parcels": ["70,47"],
+    "base": "70,47"
   },
   "spawnPoints": [
     {

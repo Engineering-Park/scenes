@@ -1,7 +1,7 @@
 {
   "display": {
     "title": "Engineering Park",
-    "description": "Parachute",
+    "description": "Systems Engineering",
     "navmapThumbnail": "images/scene-thumbnail.png",
     "favicon": "images/favicon.ico"
   },
@@ -11,10 +11,10 @@
     "email": "hello@engineeringpark.org"
   },
   "main": "bin/game.js",
-  "tags": ["engineering", "park", "parachute"],
+  "tags": ["engineering", "park", "systems", "engineering"],
   "scene": {
-    "parcels": ["70,46"],
-    "base": "70,46"
+    "parcels": ["69,48"],
+    "base": "69,48"
   },
   "spawnPoints": [
     {
