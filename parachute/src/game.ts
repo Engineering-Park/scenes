@@ -1,14 +1,19 @@
 import { addSound } from "@engineeringpark/components";
-import { addAttribution, createGltfShape } from "@engineeringpark/entities";
+import {
+  addAttribution,
+  createGltfShape,
+  createPlane
+} from "@engineeringpark/entities";
 import { FlightSystem } from "@engineeringpark/systems";
 
 const scene = new Entity("scene_parachute");
 engine.addEntity(scene);
 
-const floor = createGltfShape({
-  model: "FloorBaseGrass_01/FloorBaseGrass_01.glb",
+const floor = createPlane({
+  texture: "runway_type2_11.png",
   name: "floor",
-  position: new Vector3(8, 0, 8)
+  position: new Vector3(8, 0, 8),
+  scale: new Vector3(16, 16, 16)
 });
 floor.setParent(scene);
 

@@ -1,14 +1,15 @@
 import { addVideo } from "@engineeringpark/components";
-import { createGltfShape } from "@engineeringpark/entities";
+import { createGltfShape, createPlane } from "@engineeringpark/entities";
 import createSign from "./createSign";
 
 const scene = new Entity("scene_systems_engineering");
 engine.addEntity(scene);
 
-const floor = createGltfShape({
-  model: "FloorBasePebbles_01/FloorBasePebbles_01.glb",
+const floor = createPlane({
+  texture: "runway_type2_11.png",
   name: "floor",
-  position: new Vector3(8, 0, 8)
+  position: new Vector3(8, 0, 8),
+  scale: new Vector3(16, 16, 16)
 });
 floor.setParent(scene);
 
