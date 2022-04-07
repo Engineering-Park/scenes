@@ -779,7 +779,7 @@ const inventory = createInventory(UICanvas, UIContainerStack, UIImage);
 const options = { inventory };
 
 const script1 = new Script1();
-script1.init(options);
+script1.init();
 script1.spawn(
   signpostTree,
   { text: "SPACE SHUTTLE \nby DURVESH123\nCC-BY", fontSize: 25 },

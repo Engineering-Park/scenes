@@ -1,7 +1,7 @@
 {
-  "name": "@engineeringpark/heavisidelayer",
+  "name": "@engineeringpark/wright_way_north",
   "version": "1.0.0",
-  "description": "Engineering Park Heaviside Layer Scene",
+  "description": "Engineering Park Wight Way North Scene",
   "scripts": {
     "start": "dcl start",
     "build": "build-ecs",
@@ -11,9 +11,10 @@
     "ecs:install-next": "npm install --save-dev decentraland-ecs@next"
   },
   "devDependencies": {
-    "decentraland-ecs": "^6.10.0"
+    "decentraland-ecs": "latest"
   },
   "dependencies": {
+    "decentraland-ecs": "latest",
     "decentraland-builder-scripts": "latest"
   }
 }

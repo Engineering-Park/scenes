@@ -1,7 +1,7 @@
 {
-  "name": "@engineeringpark/heavisidelayer",
+  "name": "dcl-project",
   "version": "1.0.0",
-  "description": "Engineering Park Heaviside Layer Scene",
+  "description": "My new Decentraland project",
   "scripts": {
     "start": "dcl start",
     "build": "build-ecs",
@@ -11,9 +11,7 @@
     "ecs:install-next": "npm install --save-dev decentraland-ecs@next"
   },
   "devDependencies": {
-    "decentraland-ecs": "^6.10.0"
-  },
-  "dependencies": {
-    "decentraland-builder-scripts": "latest"
+    "decentraland-builder-scripts": "^0.21.0",
+    "decentraland-ecs": "latest"
   }
 }
