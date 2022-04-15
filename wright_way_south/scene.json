@@ -1,0 +1,37 @@
+{
+  "display": {
+    "title": "Engineering Park: Wright Way South",
+    "description": "Wright Way South",
+    "navmapThumbnail": "images/scene-thumbnail.png",
+    "favicon": "favicon_asset"
+  },
+  "owner": "0xcD2234f134Ed04F64e3f46F5864E3E8324a0B450",
+  "contact": {
+    "name": "Tristan Martindale",
+    "email": "hello@engineeringpark.org"
+  },
+  "main": "bin/game.js",
+  "tags": ["engineering", "park", "wright", "way", "south"],
+  "scene": {
+    "parcels": ["68,43", "68,42", "68,41", "68,40", "68,39", "68,38"],
+    "base": "68,38"
+  },
+  "spawnPoints": [
+    {
+      "name": "spawn1",
+      "default": true,
+      "position": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "cameraTarget": {
+        "x": 8,
+        "y": 1,
+        "z": 8
+      }
+    }
+  ],
+  "requiredPermissions": [],
+  "featureToggles": {}
+}
