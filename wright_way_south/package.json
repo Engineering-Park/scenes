@@ -1,7 +1,7 @@
 {
-  "name": "d34c8f47-71cd-4fbb-b0d0-e1927ab094f6",
+  "name": "@engineeringpark/wright_way_south",
   "version": "1.0.0",
-  "description": "My new Decentraland project",
+  "description": "Engineering Park Wight Way South Scene",
   "scripts": {
     "start": "dcl start",
     "build": "build-ecs",
