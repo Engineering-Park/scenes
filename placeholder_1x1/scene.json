@@ -1,0 +1,37 @@
+{
+  "display": {
+    "title": "Engineering Park",
+    "description": "Placeholder",
+    "navmapThumbnail": "images/scene-thumbnail.png",
+    "favicon": "images/favicon.ico"
+  },
+  "owner": "",
+  "contact": {
+    "name": "Tristan Martindale",
+    "email": "hello@engineeringpark.org"
+  },
+  "main": "bin/game.js",
+  "tags": ["engineering", "park", "placeholder"],
+  "scene": {
+    "parcels": ["67,48"],
+    "base": "67,48"
+  },
+  "spawnPoints": [
+    {
+      "name": "spawn1",
+      "default": true,
+      "position": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "cameraTarget": {
+        "x": 8,
+        "y": 1,
+        "z": 8
+      }
+    }
+  ],
+  "requiredPermissions": [],
+  "featureToggles": {}
+}
