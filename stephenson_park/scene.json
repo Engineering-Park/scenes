@@ -1,0 +1,37 @@
+{
+  "display": {
+    "title": "Engineering Park: Stephenson Park",
+    "description": "Stephenson Park",
+    "navmapThumbnail": "images/scene-thumbnail.png",
+    "favicon": "images/favicon.ico"
+  },
+  "owner": "0xcD2234f134Ed04F64e3f46F5864E3E8324a0B450",
+  "contact": {
+    "name": "Tristan Martindale",
+    "email": "hello@engineeringpark.org"
+  },
+  "main": "bin/game.js",
+  "tags": ["engineering", "park", "stephenson", "park"],
+  "scene": {
+    "parcels": ["69,49", "70,49", "71,49", "72,49"],
+    "base": "72,49"
+  },
+  "spawnPoints": [
+    {
+      "name": "spawn1",
+      "default": true,
+      "position": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "cameraTarget": {
+        "x": 8,
+        "y": 1,
+        "z": 8
+      }
+    }
+  ],
+  "requiredPermissions": [],
+  "featureToggles": {}
+}
