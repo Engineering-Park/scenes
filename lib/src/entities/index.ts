@@ -1,3 +1,7 @@
 export { default as addAttribution } from "./addAttribution";
 export { default as createGltfShape } from "./createGltfShape";
+export {
+  default as createMediaSurface,
+  MediaSurface
+} from "./createMediaSurface";
 export { default as createPlane } from "./createPlane";
