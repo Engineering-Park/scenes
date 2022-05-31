@@ -5,6 +5,7 @@ export interface MediaSurface {
   x: number;
   y: number;
   z: number;
+  orientation?: number;
   height: number;
   width: number;
   mode: "image" | "video";
@@ -20,6 +21,7 @@ export default function createMediaSurface({
   x,
   y,
   z,
+  orientation = 0,
   height,
   width,
   mode,
@@ -32,7 +34,7 @@ export default function createMediaSurface({
   const plane = new Entity(`media_surface_${id}`);
   const entityTransform = new Transform({
     position: new Vector3(8 - x, y, 8 + z + 0.001),
-    rotation: Quaternion.Euler(0, 0, 0),
+    rotation: Quaternion.Euler(0, orientation, 0),
     scale: new Vector3(width, height, 1)
   });
   plane.addComponentOrReplace(entityTransform);
@@ -70,8 +72,7 @@ export default function createMediaSurface({
   if (title) {
     const titleEntity = new Entity();
     const titleTextTransform = new Transform({
-      position: new Vector3(0, height / 2 + textOffset, 0),
-      rotation: Quaternion.Euler(0, 180, 0)
+      position: new Vector3(0, height / 2 + textOffset, 0)
     });
     titleEntity.addComponentOrReplace(titleTextTransform);
     const titleText = new TextShape(title);
@@ -84,7 +85,6 @@ export default function createMediaSurface({
     const captionEntitiy = new Entity();
     const captionTextTransform = new Transform({
       position: new Vector3(0, -height / 2 - textOffset, 0),
-      rotation: Quaternion.Euler(0, 180, 0),
       scale: new Vector3(0.5, 0.5, 1)
     });
     captionEntitiy.addComponentOrReplace(captionTextTransform);
