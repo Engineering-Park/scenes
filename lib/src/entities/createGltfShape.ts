@@ -4,6 +4,7 @@ export interface Args {
   position?: Vector3; // the position relative to the parent
   rotation?: Quaternion; // the rotation relative to the parent
   scale?: Vector3; // the scale relative to the parent
+  isPointerBlocker?: boolean; // set pointer blocking behaviour
 }
 
 export default function createGltfShape({
@@ -11,7 +12,8 @@ export default function createGltfShape({
   name,
   position = new Vector3(0, 0, 0),
   rotation = new Quaternion(0, 0, 0, 1),
-  scale = new Vector3(1, 1, 1)
+  scale = new Vector3(1, 1, 1),
+  isPointerBlocker = true
 }: Args): Entity {
   const entity = new Entity(name);
 
@@ -20,7 +22,7 @@ export default function createGltfShape({
 
   const gltfShape = new GLTFShape(`models/${model}`);
   gltfShape.withCollisions = true;
-  gltfShape.isPointerBlocker = true;
+  gltfShape.isPointerBlocker = isPointerBlocker;
   gltfShape.visible = true;
   entity.addComponentOrReplace(gltfShape);
 
