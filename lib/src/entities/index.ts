@@ -6,3 +6,4 @@ export {
   MediaSurface
 } from "./createMediaSurface";
 export { default as createPlane } from "./createPlane";
+export { default as createTextSurface, TextSurface } from "./createTextSurface";
