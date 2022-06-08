@@ -7,3 +7,4 @@ export {
 } from "./createMediaSurface";
 export { default as createPlane } from "./createPlane";
 export { default as createTextSurface, TextSurface } from "./createTextSurface";
+export { default as createVideoScreen, VideoScreen } from "./createVideoScreen";
