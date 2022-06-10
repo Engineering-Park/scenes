@@ -1,31 +1,33 @@
-import * as utils from "@dcl/ecs-scene-utils";
-
 export interface VideoScreen {
   id: string | number;
-  x: number;
-  y: number;
-  z: number;
+  position: Vector3;
   orientation?: number;
   height: number;
   width: number;
   media: string;
+  title?: string;
+  titleOffset?: number;
   loop?: boolean;
+  playButton?: Vector3;
+  playButtonSize?: number;
 }
 
 export default function createVideoScreen({
   id,
-  x,
-  y,
-  z,
+  position,
   orientation = 0,
   height,
   width,
   media,
-  loop = false
+  title,
+  titleOffset = 0,
+  loop = false,
+  playButton,
+  playButtonSize
 }: VideoScreen): Entity {
   const screen = new Entity(`video_surface_${id}`);
   const entityTransform = new Transform({
-    position: new Vector3(8 - x, y, 8 + z + 0.001),
+    position: position,
     rotation: Quaternion.Euler(0, 180 - orientation, 0),
     scale: new Vector3(width, height, 1)
   });
@@ -40,12 +42,51 @@ export default function createVideoScreen({
   videoTexture.loop = loop;
   material.texture = videoTexture;
   screen.addComponent(material);
-  screen.addComponent(
-    new OnPointerDown(() => {
-      videoTexture.playing = !videoTexture.playing;
-    })
-  );
-  if (loop) videoTexture.play();
+
+  if (title) {
+    const titleEntity = new Entity();
+    const titleTextTransform = new Transform({
+      position: new Vector3(0, height / 2 + titleOffset, 0),
+      rotation: Quaternion.Euler(0, 180, 0),
+      scale: new Vector3(1 / width, 1 / height, 1)
+    });
+    titleEntity.addComponentOrReplace(titleTextTransform);
+    const titleText = new TextShape(title);
+    titleText.fontSize = 1;
+    titleEntity.addComponent(titleText);
+    titleEntity.setParent(screen);
+  }
+
+  if (loop) {
+    videoTexture.play();
+    return screen;
+  }
+
+  const handlePointerDown = new OnPointerDown(() => {
+    videoTexture.playing = !videoTexture.playing;
+  });
+
+  if (!playButton || !playButtonSize) {
+    screen.addComponent(handlePointerDown);
+    return screen;
+  }
+
+  const button = new Entity(`play_button_${id}`);
+  const buttonTransform = new Transform({
+    position: playButton,
+    scale: new Vector3(playButtonSize / width, playButtonSize / height, 1)
+  });
+  button.addComponentOrReplace(buttonTransform);
+
+  const buttonShape = new PlaneShape();
+  button.addComponent(buttonShape);
+
+  const transparentMaterial = new Material();
+  transparentMaterial.albedoColor = new Color4(1, 1, 1, 0);
+  button.addComponent(transparentMaterial);
+
+  button.addComponent(handlePointerDown);
+  button.setParent(screen);
 
   return screen;
 }
