@@ -28,7 +28,7 @@ export default function createVideoScreen({
   const screen = new Entity(`video_surface_${id}`);
   const entityTransform = new Transform({
     position: position,
-    rotation: Quaternion.Euler(0, 180 - orientation, 0),
+    rotation: Quaternion.Euler(0, 180 + orientation, 0),
     scale: new Vector3(width, height, 1)
   });
   screen.addComponentOrReplace(entityTransform);
