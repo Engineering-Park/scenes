@@ -39,7 +39,7 @@ export default function createVideoScreen({
   const material = new BasicMaterial();
   const videoClip = new VideoClip(media);
   const videoTexture = new VideoTexture(videoClip);
-  videoTexture.loop = loop;
+  videoTexture.loop = true;
   material.texture = videoTexture;
   screen.addComponent(material);
 
@@ -55,11 +55,6 @@ export default function createVideoScreen({
     titleText.fontSize = 1;
     titleEntity.addComponent(titleText);
     titleEntity.setParent(screen);
-  }
-
-  if (loop) {
-    videoTexture.play();
-    return screen;
   }
 
   const handlePointerDown = new OnPointerDown(() => {
