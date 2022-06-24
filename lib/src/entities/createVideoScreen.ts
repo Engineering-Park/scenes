@@ -1,3 +1,5 @@
+import * as utils from "@dcl/ecs-scene-utils";
+
 export interface VideoScreen {
   id: string | number;
   position: Vector3;
@@ -62,6 +64,30 @@ export default function createVideoScreen({
   });
 
   if (!playButton || !playButtonSize) {
+    // const testBox = new Entity();
+    // const planeTransform = new Transform({
+    //   position: new Vector3(0, 0, 2),
+    //   scale: new Vector3(4, 1, 4)
+    // });
+    // testBox.addComponentOrReplace(planeTransform);
+    // const boxShape = new BoxShape();
+    // boxShape.withCollisions = false;
+    // testBox.addComponent(boxShape);
+    // testBox.setParent(screen);
+
+    screen.addComponent(
+      new utils.TriggerComponent(
+        new utils.TriggerBoxShape(
+          orientation === 180 ? new Vector3(4, 2, 4) : new Vector3(4, 2, 4),
+          orientation === 180 ? new Vector3(0, 0, 2) : new Vector3(-2, 0, 0)
+        ),
+        {
+          onCameraEnter: () => videoTexture.play(),
+          onCameraExit: () => videoTexture.pause()
+        }
+      )
+    );
+
     screen.addComponent(handlePointerDown);
     return screen;
   }
