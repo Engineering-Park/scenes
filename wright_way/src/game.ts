@@ -1,55 +1,63 @@
-import setUVs from "./setUVs";
+type Parcel = {
+  coordinates: string;
+  material: BasicMaterial;
+  orientation?: number;
+};
 
-const parcels: string[] = [
-  "68,49",
-  "68,48",
-  "68,47",
-  "68,46",
-  "68,45",
-  "68,44",
-  "68,43",
-  "68,42",
-  "68,41",
-  "68,40",
-  "68,39",
-  "68,38"
+const threshold06Texture = new Texture(`images/runway_type2_01.png`);
+const threshold06Material = new BasicMaterial();
+threshold06Material.texture = threshold06Texture;
+
+const threshold24Texture = new Texture(`images/runway_type2_04.png`);
+const threshold24Material = new BasicMaterial();
+threshold24Material.texture = threshold24Texture;
+
+const touchdownTexture1 = new Texture(`images/runway_type2_07.png`);
+const touchDownMaterial1 = new BasicMaterial();
+touchDownMaterial1.texture = touchdownTexture1;
+
+const touchdownTexture2 = new Texture(`images/runway_type2_08.png`);
+const touchDownMaterial2 = new BasicMaterial();
+touchDownMaterial2.texture = touchdownTexture2;
+
+const touchdownTexture3 = new Texture(`images/runway_type2_09.png`);
+const touchDownMaterial3 = new BasicMaterial();
+touchDownMaterial3.texture = touchdownTexture3;
+
+const runwayTexture = new Texture(`images/runway_type2_10.png`);
+const runwayMaterial = new BasicMaterial();
+runwayMaterial.texture = runwayTexture;
+
+const parcels: Parcel[] = [
+  { coordinates: "68,49", material: threshold24Material, orientation: 180 },
+  { coordinates: "68,48", material: touchDownMaterial1, orientation: 180 },
+  { coordinates: "68,47", material: touchDownMaterial2, orientation: 180 },
+  { coordinates: "68,46", material: touchDownMaterial3, orientation: 180 },
+  { coordinates: "68,45", material: runwayMaterial },
+  { coordinates: "68,44", material: runwayMaterial },
+  { coordinates: "68,43", material: runwayMaterial },
+  { coordinates: "68,42", material: runwayMaterial },
+  { coordinates: "68,41", material: touchDownMaterial3 },
+  { coordinates: "68,40", material: touchDownMaterial2 },
+  { coordinates: "68,39", material: touchDownMaterial1 },
+  { coordinates: "68,38", material: threshold06Material }
 ];
 
 const scene = new Entity("scene_wright_way");
 engine.addEntity(scene);
 
-const createRoadTransform = (index: number) =>
+const createRoadTransform = (index: number, orientation = 0) =>
   new Transform({
     position: new Vector3(8, 0, 8 - 16 * index),
-    rotation: Quaternion.Euler(90, 90, 0),
+    rotation: Quaternion.Euler(90, orientation + 90, 0),
     scale: new Vector3(16, 16, 16)
   });
 
-const roadTexture1 = new Texture(
-  `images/stone_wall_seamless_texture_4671.jpg`,
-  { wrap: 2 }
-);
-const roadMaterial1 = new Material();
-roadMaterial1.albedoTexture = roadTexture1;
-
-const roadTexture2 = new Texture(
-  `images/stone_wall_seamless_texture_6631.jpg`,
-  { wrap: 2 }
-);
-const roadMaterial2 = new Material();
-roadMaterial2.albedoTexture = roadTexture2;
-
-parcels.forEach((parcel, index) => {
-  const tile = new Entity(`road_tile_${parcel}`);
-  tile.addComponentOrReplace(createRoadTransform(index));
+parcels.forEach(({ coordinates, material, orientation }, index) => {
+  const tile = new Entity(`road_tile_${coordinates}`);
+  tile.addComponentOrReplace(createRoadTransform(index, orientation));
   const planeShape = new PlaneShape();
-  planeShape.uvs = setUVs(2, 2);
   tile.addComponent(planeShape);
-
-  if (index < 6) {
-    tile.addComponent(roadMaterial1);
-  } else {
-    tile.addComponent(roadMaterial2);
-  }
+  tile.addComponent(material);
   tile.setParent(scene);
 });
