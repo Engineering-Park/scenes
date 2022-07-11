@@ -1,3 +1,5 @@
+import createGltfShape from "./createGltfShape";
+
 type Parcel = {
   coordinates: string;
   material: BasicMaterial;
@@ -75,3 +77,13 @@ textShape.fontSize = 1;
 textShape.color = Color3.White();
 textEntity.addComponent(textShape);
 textEntity.setParent(scene);
+
+// International space station
+const iss = createGltfShape({
+  model: "international-space-station.glb",
+  name: "International Space Station",
+  position: new Vector3(8, 100, 8 - 16 * 6),
+  rotation: Quaternion.Euler(-15, 30, -20),
+  scale: new Vector3(0.5, 0.5, 0.5)
+});
+iss.setParent(scene);
