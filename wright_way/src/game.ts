@@ -61,3 +61,17 @@ parcels.forEach(({ coordinates, material, orientation }, index) => {
   tile.addComponent(material);
   tile.setParent(scene);
 });
+
+// District name
+const textEntity = new Entity("district-name");
+const textTransform = new Transform({
+  position: new Vector3(8, 8, 8),
+  rotation: Quaternion.Euler(0, 180, 0),
+  scale: new Vector3(15, 15, 1)
+});
+textEntity.addComponentOrReplace(textTransform);
+const textShape = new TextShape("Engineering Park");
+textShape.fontSize = 1;
+textShape.color = Color3.White();
+textEntity.addComponent(textShape);
+textEntity.setParent(scene);
