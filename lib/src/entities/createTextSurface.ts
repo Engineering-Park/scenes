@@ -1,5 +1,3 @@
-import setUVs from "src/utils/setUVs";
-
 export interface TextSurface {
   id: string | number;
   x: number;
