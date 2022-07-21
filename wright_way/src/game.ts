@@ -82,8 +82,8 @@ textEntity.setParent(scene);
 const iss = createGltfShape({
   model: "international-space-station.glb",
   name: "International Space Station",
-  position: new Vector3(8, 70, 8 - 16 * 6),
+  position: new Vector3(8, 50, 8 - 16 * 6),
   rotation: Quaternion.Euler(-15, 30, -20),
-  scale: new Vector3(0.5, 0.5, 0.5)
+  scale: new Vector3(0.25, 0.25, 0.25)
 });
 iss.setParent(scene);
