@@ -87,6 +87,33 @@ const iss = createGltfShape({
   scale: new Vector3(0.25, 0.25, 0.25)
 });
 iss.setParent(scene);
+const attribution = createGltfShape({
+  model: "Sign_Square.glb",
+  name: "iss-attribution",
+  position: new Vector3(15.5, 1, 8 - 16 * 6),
+  rotation: Quaternion.Euler(0, 90, 0),
+  scale: new Vector3(2, 1, 1)
+});
+attribution.setParent(scene);
+const attributionArrow = createGltfShape({
+  model: "Sign_Arrow.glb",
+  name: "attribution-arrow",
+  position: new Vector3(-0.2, 2.5, 0),
+  rotation: Quaternion.Euler(0, 0, -90),
+  scale: new Vector3(2, 0.5, 1)
+});
+attributionArrow.setParent(attribution);
+const attributionText = new Entity("attribution-text");
+const attributionTextTransform = new Transform({
+  position: new Vector3(0, 0.5, 0),
+  scale: new Vector3(0.14, 0.25, 0.25)
+});
+attributionText.addComponentOrReplace(attributionTextTransform);
+const attributionTextShape = new TextShape(
+  "International Space Station\nby calebcram\nCC-BY"
+);
+attributionText.addComponent(attributionTextShape);
+attributionText.setParent(attribution);
 
 // Hyperlinks
 const onPointerDown = new OnPointerDown(() => {
