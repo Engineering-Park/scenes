@@ -92,16 +92,12 @@ iss.setParent(scene);
 const onPointerDown = new OnPointerDown(() => {
   openExternalURL("https://engineeringpark.org");
 });
-const createHyperlink = (
-  name: string,
-  position: Vector3,
-  rotation: Quaternion = Quaternion.Euler(0, 90, 0)
-) => {
+const createHyperlink = (name: string, position: Vector3) => {
   const link = createGltfShape({
     model: "hiper.glb",
     name,
     position,
-    rotation
+    rotation: Quaternion.Euler(0, 90, 0)
   });
   link.addComponent(onPointerDown);
   link.setParent(scene);
@@ -110,3 +106,44 @@ createHyperlink("hyperlink-north-east", new Vector3(15.5, 1, 12));
 createHyperlink("hyperlink-north-west", new Vector3(0.5, 1, 12));
 createHyperlink("hyperlink-south-east", new Vector3(15.5, 1, 4 - 16 * 11));
 createHyperlink("hyperlink-south-west", new Vector3(0.5, 1, 4 - 16 * 11));
+
+// Road signs
+const createRoadSign = (
+  name: string,
+  position: Vector3,
+  orientation = 0,
+  textOrientation = 0
+) => {
+  const sign = createGltfShape({
+    model: "Sign_Arrow.glb",
+    name,
+    position,
+    rotation: Quaternion.Euler(0, 90 + orientation, 0),
+    scale: new Vector3(2, 1, 1)
+  });
+  sign.setParent(scene);
+
+  const text = new Entity(name);
+  const textTransform = new Transform({
+    position: new Vector3(0.25, 0.39, 0),
+    rotation: Quaternion.Euler(0, textOrientation, 0),
+    scale: new Vector3(0.15, 0.25, 0.25)
+  });
+  text.addComponentOrReplace(textTransform);
+  const textShape = new TextShape("Wright Way");
+  text.addComponent(textShape);
+  text.setParent(sign);
+};
+createRoadSign("road-sign-north-east", new Vector3(15.5, 1.5, 11.5), 180, 180);
+createRoadSign("road-sign-north-west", new Vector3(0.5, 1.5, 11.5), 180);
+createRoadSign(
+  "road-sign-south-east",
+  new Vector3(15.5, 1.5, 4.5 - 16 * 11),
+  0
+);
+createRoadSign(
+  "road-sign-south-west",
+  new Vector3(0.5, 1.5, 4.5 - 16 * 11),
+  0,
+  180
+);
