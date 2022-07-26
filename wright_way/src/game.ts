@@ -87,3 +87,26 @@ const iss = createGltfShape({
   scale: new Vector3(0.25, 0.25, 0.25)
 });
 iss.setParent(scene);
+
+// Hyperlinks
+const onPointerDown = new OnPointerDown(() => {
+  openExternalURL("https://engineeringpark.org");
+});
+const createHyperlink = (
+  name: string,
+  position: Vector3,
+  rotation: Quaternion = Quaternion.Euler(0, 90, 0)
+) => {
+  const link = createGltfShape({
+    model: "hiper.glb",
+    name,
+    position,
+    rotation
+  });
+  link.addComponent(onPointerDown);
+  link.setParent(scene);
+};
+createHyperlink("hyperlink-north-east", new Vector3(15.5, 1, 12));
+createHyperlink("hyperlink-north-west", new Vector3(0.5, 1, 12));
+createHyperlink("hyperlink-south-east", new Vector3(15.5, 1, 4 - 16 * 11));
+createHyperlink("hyperlink-south-west", new Vector3(0.5, 1, 4 - 16 * 11));
