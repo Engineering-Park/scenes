@@ -9,20 +9,25 @@
   },
   "license": "MIT",
   "scripts": {
-    "start": "dcl start",
-    "build": "build-ecs",
-    "watch": "build-ecs --watch",
-    "deploy:now": "dcl export && now export",
-    "ecs:install": "npm install --save-dev decentraland-ecs@latest",
-    "ecs:install-next": "npm install --save-dev decentraland-ecs@next"
+    "start": "sdk-commands start",
+    "deploy": "sdk-commands deploy",
+    "build": "sdk-commands build",
+    "upgrade-sdk": "npm install --save-dev @dcl/sdk@latest",
+    "upgrade-sdk:next": "npm install --save-dev @dcl/sdk@next"
   },
   "devDependencies": {
-    "decentraland-ecs": "^6.11.3"
+    "@dcl-sdk/utils": "^1.2.8",
+    "@dcl/asset-packs": "latest",
+    "@dcl/js-runtime": "7.6.0",
+    "@dcl/sdk": "latest"
   },
-  "dependencies": {
-    "@dcl/ecs-scene-utils": "latest"
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=6.0.0"
   },
-  "bundledDependencies": [
-    "@dcl/ecs-scene-utils"
-  ]
+  "prettier": {
+    "arrowParens": "avoid",
+    "printWidth": 120,
+    "trailingComma": "none"
+  }
 }

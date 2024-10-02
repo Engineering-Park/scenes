@@ -1,4 +1,6 @@
 {
+  "ecs7": true,
+  "runtimeVersion": "7",
   "display": {
     "title": "Engineering Park: Wright Way",
     "description": "Wright Way",
@@ -10,7 +12,7 @@
     "name": "Tristan Martindale",
     "email": "hello@engineeringpark.org"
   },
-  "main": "bin/game.js",
+  "main": "bin/index.js",
   "tags": ["engineering", "park", "wright", "way"],
   "scene": {
     "parcels": [
@@ -45,6 +47,8 @@
       }
     }
   ],
-  "requiredPermissions": [],
-  "featureToggles": {}
+  "featureToggles": {
+    "voiceChat": "enabled",
+    "portableExperiences": "enabled"
+  }
 }
