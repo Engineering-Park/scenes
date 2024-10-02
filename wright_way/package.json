@@ -9,9 +9,10 @@
   },
   "license": "MIT",
   "scripts": {
-    "start": "sdk-commands start",
-    "deploy": "sdk-commands deploy",
+    "clean:deps": "rimraf node_modules package-lock.json",
     "build": "sdk-commands build",
+    "deploy": "sdk-commands deploy",
+    "start": "sdk-commands start",
     "upgrade-sdk": "npm install --save-dev @dcl/sdk@latest",
     "upgrade-sdk:next": "npm install --save-dev @dcl/sdk@next"
   },
@@ -19,7 +20,8 @@
     "@dcl-sdk/utils": "^1.2.8",
     "@dcl/asset-packs": "latest",
     "@dcl/js-runtime": "7.6.0",
-    "@dcl/sdk": "latest"
+    "@dcl/sdk": "latest",
+    "rimraf": "^6.0.1"
   },
   "engines": {
     "node": ">=16.0.0",
